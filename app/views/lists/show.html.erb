@@ -1,0 +1,35 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.leparisien.fr/resizer/_Qgf9Z9wEwKqJdaGeGBaggxPA1s=/1280x800/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/HAJOUE72SD4OBCQ7GZVVBZ3ZAQ.jpg);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="my-5 text-primary">
+    <%= link_to new_list_bookmark_path(@list) do %>
+      <i class="fas fa-comment mx-3"></i>
+    <% end %>
+
+    <%= link_to 'ACCEUIL', lists_path %>
+
+    <%= link_to list_path(@list), method: :delete, data: {confirm:'Are you sure'} do %>
+      <i class="fas fa-trash mx-3"></i>
+    <% end %>
+  </div>
+
+<% @list.movies.each do |movie| %>
+    <div class="card-product my-5">
+      <img src= <%= movie.poster_url %>/>
+        <div class="card-product-infos">
+          <h2><%= movie.title %></h2>
+          <p class= 'p-2 mx-5 border border-info rounded'><%= movie.overview %></p>
+        </div>
+        <div>
+          <%= link_to bookmark_path, method: :delete, data: {confirm: "are you sure ?"} do %>
+            <i class="fas fa-trash btn btn-info mr-3"></i>
+          <% end %>
+        </div>
+    </div>
+<%end %>
+</div>
