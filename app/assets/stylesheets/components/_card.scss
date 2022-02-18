@@ -36,12 +36,12 @@ a {
 }
 
 .card-product {
-  overflow: hidden;
-  height: 120px;
+  min-height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .card-product img {
@@ -62,6 +62,7 @@ a {
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  font-weight: lighter;
 }
 
 .card-product .card-product-infos {
@@ -71,15 +72,14 @@ a {
 .destroy {
   text-decoration: none;
   position: absolute;
-  right: 10px;
-  top: 10px;
-  color: white;
+  right: -15px;
+  top: -7px;
 
   &:hover{
     text-decoration: none;
     color: inherit;
     color: red;
-    transform: scale(1.5);
-    transition: transform 2.2s;
+    transform: scale(1.2);
+    transition: transform 0.5s;
   }
 }

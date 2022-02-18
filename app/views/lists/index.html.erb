@@ -1,12 +1,12 @@
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.leparisien.fr/resizer/_Qgf9Z9wEwKqJdaGeGBaggxPA1s=/1280x800/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/HAJOUE72SD4OBCQ7GZVVBZ3ZAQ.jpg);">
     <div class="container">
       <h1>LIST MOVIES</h1>
-      <p>The cinema at your fingertips</p>
+      <p>My movies lists !</p>
     </div>
   </div>
 
   <div class="container">
-    <%= link_to 'Add list', new_list_path, class: 'btn btn-primary my-5' %>
+    <%= link_to 'Add list', new_list_path, class: 'btn btn-primary btn-lg btn-block my-5' %>
     <div class="d-flex">
       <div class="cards">
         <% @lists.each do |list| %>

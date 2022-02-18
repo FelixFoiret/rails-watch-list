@@ -6,30 +6,34 @@
 
 <div class="container">
 
-  <div class="my-5 text-primary">
-    <%= link_to new_list_bookmark_path(@list) do %>
-      <i class="fas fa-comment mx-3"></i>
-    <% end %>
+  <div class="d-flex justify-content-between my-5">
 
-    <%= link_to 'ACCEUIL', lists_path %>
+    <%= link_to 'ACCEUIL', lists_path, class: "btn btn-primary" %>
 
-    <%= link_to list_path(@list), method: :delete, data: {confirm:'Are you sure'} do %>
-      <i class="fas fa-trash mx-3"></i>
-    <% end %>
+    <%= link_to 'ADD A BOOKMARK', new_list_bookmark_path(@list), class:"btn btn-primary"  %>
+
+    <%= link_to 'DELETE THE LIST', list_path(@list), method: :delete, data: {confirm:'Are you sure'}, class:"btn btn-primary" %>
   </div>
 
-<% @list.movies.each do |movie| %>
-    <div class="card-product my-5">
-      <img src= <%= movie.poster_url %>/>
-        <div class="card-product-infos">
-          <h2><%= movie.title %></h2>
-          <p class= 'p-2 mx-5 border border-info rounded'><%= movie.overview %></p>
-        </div>
-        <div>
-          <%= link_to bookmark_path, method: :delete, data: {confirm: "are you sure ?"} do %>
-            <i class="fas fa-trash btn btn-info mr-3"></i>
-          <% end %>
-        </div>
-    </div>
-<%end %>
+  <% @list.bookmarks.each do |bookmark| %>
+      <div class="card-product my-5">
+
+        <div class="card-product-img" style="background-image:url('<%= bookmark.movie.poster_url %>'); background-size: cover;height: 313px;min-width: 200px;">
+          </div>
+          <div class="card-product-infos">
+            <h2 class= 'p-2 mx-5'> Title : <%= bookmark.movie.title %></h2>
+            <p class= 'p-2 ml-5'> <strong> Overview :  </strong><%= bookmark.movie.overview %> </p>
+            <p class='p-2 mx-5'><strong> Rating : </strong><%= bookmark.movie.rating %></p>
+            <p class='p-2 mx-5'> <strong> Comment : </strong><%= bookmark.comment %></p>
+            <strong>
+          </div>
+          <div class="destroy">
+            <%= link_to bookmark_path(bookmark), method: :delete, data: {confirm: "are you sure ?"} do %>
+              <i class="fas fa-trash btn btn-info text-white rounded-circle"></i>
+            <% end %>
+          </div>
+      </div>
+  <%end %>
+
+
 </div>

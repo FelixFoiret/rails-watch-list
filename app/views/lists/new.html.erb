@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container d-flex flex-column">
 
-  <h1>Add a list</h1>
+  <h2 class='text-center mt-5'> ADD A LIST</h2>
   <%= simple_form_for (@list) do |f| %>
     <%= f.input :name %>
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit class: 'btn btn-primary btn-lg btn-block' %>
   <%end %>
 
-  <%= link_to 'All Lists', lists_path %>
+  <%= link_to 'All Lists', lists_path, class: 'btn btn-info mt-3' %>
 
 </div>
